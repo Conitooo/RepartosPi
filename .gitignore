@@ -1,0 +1,29 @@
+# Logs
+*.log
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Node / Angular
+node_modules/
+dist/
+.angular/
+coverage/
+
+# Java / Spring
+target/
+*.class
+*.jar
+*.war
+*.iml
+.mvn/wrapper/maven-wrapper.jar
+
+# Env files
+.env
+.env.*
+
+# Build / misc
+out/
+tmp/
