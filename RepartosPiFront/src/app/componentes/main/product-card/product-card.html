@@ -1,0 +1,17 @@
+<div class="product-card">
+  <div class="product-card__badge" [class.available]="producto().disponible" [class.unavailable]="!producto().disponible">
+    {{ producto().disponible ? 'Disponible' : 'No disponible' }}
+  </div>
+
+  <div class="product-card__content">
+    <h2 class="product-card__title">{{ producto().nombre }}</h2>
+    <p class="product-card__description">{{ producto().descripcion }}</p>
+
+    <div class="product-card__footer">
+      <p class="product-card__price">{{ producto().precioCentimos / 100 }} €</p>
+      <button class="product-card__button" [disabled]="!producto().disponible">
+        Pedir
+      </button>
+    </div>
+  </div>
+</div>

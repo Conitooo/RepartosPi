@@ -1,0 +1,118 @@
+:host {
+  display: block;
+}
+
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+  padding: 1.25rem;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #ffffff, #f7f7f9);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.08),
+    0 4px 10px rgba(0, 0, 0, 0.04);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+  overflow: hidden;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 16px 32px rgba(0, 0, 0, 0.12),
+    0 6px 14px rgba(0, 0, 0, 0.06);
+}
+
+.product-card__badge {
+  align-self: flex-start;
+  margin-bottom: 1rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.product-card__badge.available {
+  background-color: #e8fff0;
+  color: #15803d;
+}
+
+.product-card__badge.unavailable {
+  background-color: #ffeaea;
+  color: #b91c1c;
+}
+
+.product-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  height: 100%;
+}
+
+.product-card__title {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #1f2937;
+  line-height: 1.2;
+}
+
+.product-card__description {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  color: #4b5563;
+  flex-grow: 1;
+}
+
+.product-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.product-card__price {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #111827;
+}
+
+.product-card__button {
+  border: none;
+  outline: none;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, #111827, #374151);
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 8px 18px rgba(17, 24, 39, 0.2);
+}
+
+.product-card__button:hover:not(:disabled) {
+  transform: scale(1.03);
+}
+
+.product-card__button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.product-card__button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  box-shadow: none;
+}

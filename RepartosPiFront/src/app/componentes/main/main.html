@@ -1,0 +1,10 @@
+<section class="products-section">
+
+  <div class="products-grid">
+    @for (producto of productosObtenidos(); track producto.id) {
+      @if (producto.disponible) {
+        <app-product-card [producto]="producto"></app-product-card>
+}
+    }
+  </div>
+</section>
