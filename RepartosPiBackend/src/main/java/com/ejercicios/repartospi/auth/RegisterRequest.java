@@ -1,4 +1,4 @@
-package com.ejercicios.repartospi.Users;
+package com.ejercicios.repartospi.auth;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -8,9 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class UserDto {
-
-    private Long id;
+public class RegisterRequest {
 
     @NotBlank(message = "El nombre de usuario es obligatorio")
     private String username;
@@ -18,4 +16,7 @@ public class UserDto {
     @Email(message = "El email no es válido")
     @NotBlank(message = "El email es obligatorio")
     private String email;
+
+    @NotBlank(message = "La contraseña es obligatoria")
+    private String password;
 }

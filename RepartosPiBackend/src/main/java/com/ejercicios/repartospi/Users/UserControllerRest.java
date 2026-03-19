@@ -1,10 +1,8 @@
 package com.ejercicios.repartospi.Users;
 
 import com.ejercicios.repartospi.producto.ProductDto;
-import com.ejercicios.repartospi.reponses.ApiResponseDto;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,14 +15,6 @@ public class UserControllerRest {
 
     private final UserService userService;
 
-    @PostMapping
-    public ResponseEntity<ApiResponseDto> createUser(@RequestBody @Valid UserDto userDto) {
-        userService.createUser(userDto);
-        return ResponseEntity
-                .status(HttpStatus.CREATED)
-                .body(new ApiResponseDto("Usuario creado correctamente"));
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<UserDto> getUserById(@PathVariable Long id) {
         UserDto user = userService.getUserById(id);
@@ -32,8 +22,10 @@ public class UserControllerRest {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<UserDto> updateUser(@PathVariable Long id,
-                                              @RequestBody @Valid UserDto userDto) {
+    public ResponseEntity<UserDto> updateUser(
+            @PathVariable Long id,
+            @RequestBody @Valid UserDto userDto
+    ) {
         UserDto updatedUser = userService.updateUser(id, userDto);
         return ResponseEntity.ok(updatedUser);
     }
