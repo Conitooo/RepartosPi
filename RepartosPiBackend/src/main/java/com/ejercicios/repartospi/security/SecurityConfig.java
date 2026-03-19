@@ -18,11 +18,8 @@ import java.util.List;
 
 @Configuration
 public class SecurityConfig {
+    
 
-    /**
-     * Ignora por completo las peticiones OPTIONS para evitar problemas
-     * con el preflight CORS en desarrollo.
-     */
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
         return (WebSecurity web) -> web.ignoring()
