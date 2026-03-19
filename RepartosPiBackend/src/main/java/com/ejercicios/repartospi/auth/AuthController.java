@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class AuthController {
 
-    private final com.ejercicios.repartospi.auth.AuthService authService;
+    private final AuthService authService;
 
     @PostMapping("/register")
     public ResponseEntity<UserDto> register(@RequestBody @Valid RegisterRequest request) {

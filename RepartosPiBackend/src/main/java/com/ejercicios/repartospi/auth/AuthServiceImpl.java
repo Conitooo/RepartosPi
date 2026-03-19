@@ -12,15 +12,18 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class AuthServiceImpl implements com.ejercicios.repartospi.auth.AuthService {
+public class AuthServiceImpl implements AuthService {
+
+    private static final Logger log = LoggerFactory.getLogger(AuthServiceImpl.class);
 
     private final UserRepository userRepository;
     private final UserMapper userMapper;
     private final PasswordEncoder passwordEncoder;
-    private static final Logger log = LoggerFactory.getLogger(AuthServiceImpl.class);
+
     @Override
     public UserDto register(RegisterRequest request) {
         log.info("Registrando usuario con email={}", request.getEmail());
+
         boolean exists = userRepository.existsByEmail(request.getEmail());
 
         if (exists) {
@@ -28,8 +31,8 @@ public class AuthServiceImpl implements com.ejercicios.repartospi.auth.AuthServi
         }
 
         UserEntity user = UserEntity.builder()
-                .username(request.getUsername())
-                .email(request.getEmail())
+                .username(request.getUsername().trim())
+                .email(request.getEmail().trim())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .build();
 
@@ -40,7 +43,9 @@ public class AuthServiceImpl implements com.ejercicios.repartospi.auth.AuthServi
 
     @Override
     public AuthResponse login(LoginRequest request) {
-        UserEntity user = userRepository.findByEmail(request.getEmail())
+        log.info("Intento de login con email={}", request.getEmail());
+
+        UserEntity user = userRepository.findByEmail(request.getEmail().trim())
                 .orElseThrow(() -> new RuntimeException("Email o contraseña incorrectos"));
 
         boolean matches = passwordEncoder.matches(request.getPassword(), user.getPassword());
