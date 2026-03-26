@@ -57,7 +57,13 @@
             <scope>provided</scope>
             <optional>true</optional>
         </dependency>
-
+        <!-- Source: https://mvnrepository.com/artifact/org.zalando/logbook-core -->
+        <dependency>
+            <groupId>org.zalando</groupId>
+            <artifactId>logbook-core</artifactId>
+            <version>4.0.3</version>
+            <scope>test</scope>
+        </dependency>
         <!-- MapStruct API (lo que usas en @Mapper, @Mapping, etc.) -->
         <dependency>
             <groupId>org.mapstruct</groupId>
