@@ -24,6 +24,7 @@ RepartosPi/
 ├── RepartosPiFront/
 └── docker-compose.yml
 ```
+## Clonar el repositorio
 
 ```bash
 git clone https://github.com/Conitooo/RepartosPi.git
